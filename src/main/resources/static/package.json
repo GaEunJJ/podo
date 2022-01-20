@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@yaireo/tagify": "^4.9.4",
+    "bootstrap": "^5.1.3",
+    "cropper": "^4.1.0",
+    "font-awesome": "^4.7.0",
+    "jdenticon": "^3.1.1",
+    "jquery": "^3.6.0",
+    "jquery-cropper": "^1.0.1",
+    "mark.js": "^8.11.1",
+    "moment": "^2.29.1",
+    "summernote": "^0.8.20"
+  }
+}

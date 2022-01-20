@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-2">
+            <div th:replace="fragments.html :: settings-menu(currentMenu='tags')"></div>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <h2 class="col-12">관심사 선택</h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        관심있는 분야를 선택해주세요. 관련 모임이 생기면 알림을 받을 수 있습니다. 태그를 입력하고 콤마(,)
+                        또는 엔터를 입력하세요.
+                    </div>
+                    <div id="whitelist" th:text="${whitelist}" hidden></div>
+                    <!--리스트 형태 변환-->
+                    <input id="tags" type="text" name="tags" th:value="${#strings.listJoin(tags, ',')}"
+                           class="tagify-outside" aria-describedby="tagHelp"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/node_modules/@yaireo/tagify/dist/tagify.min.js"></script>
+<script th:replace="fragments.html :: ajax-csrf-header"></script>
+<script th:replace="fragments.html :: update-tags(baseUrl='/settings/tags')"></script>
+</body>
+</html>
