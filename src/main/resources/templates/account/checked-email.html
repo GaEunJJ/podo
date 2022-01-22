@@ -6,8 +6,14 @@
 
     <div class = "py-5 text-center" th:if="${error}">
         <p class = "lead">Podo 이메일 확인</p>
-        <div class="alert alert-danger" role="alert"> 이메일 확인 링크가 정확하지 않습니다.</div>
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+                이메일 확인 링크가 정확하지 않습니다.
+            </div>
+        </div>
     </div>
+
 
     <div class = "py-5 text-center" th:if="${error == null}">
         <p class = "lead">포도 이메일 확인</p>

@@ -35,7 +35,7 @@ class AccountControllerTest {
 
     @DisplayName("인증 메일 확인 - 입력값 오류")
     @Test
-    void checkEmailToken_with_wrong_input() throws Exception {
+    void checkEmailToken_wrong_input() throws Exception {
         mockMvc.perform(get("/check-email-token")
                         .param("token", "sdwetqaef")
                         .param("email", "email@email.com"))
