@@ -37,9 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.formLogin()
                 .loginPage("/login").permitAll();
-
+        // 로그아웃 한 후 이동 페이지
         http.logout()
-                .logoutSuccessUrl("/"); // 로그아웃 한 후 이동 페이지
+                .logoutSuccessUrl("/");
 
         http.rememberMe()
                 .userDetailsService(accountService)
