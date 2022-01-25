@@ -111,8 +111,8 @@ public class SettingsController {
     }
 
     @PostMapping(NOTIFICATIONS)
-    public String updateNotifications(@CurrentUser Account account, @Valid Notifications notifications,
-                                      Errors errors, Model model, RedirectAttributes attributes){
+    public String updateNotifications(@CurrentUser Account account, @Valid Notifications notifications, Errors errors,
+                                      Model model, RedirectAttributes attributes){
         if (errors.hasErrors()){
             model.addAttribute(account);
             return SETTINGS + NOTIFICATIONS;
