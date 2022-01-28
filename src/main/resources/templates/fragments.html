@@ -160,10 +160,9 @@
 </script>
 
 <div th:fragment="update-tags (baseUrl)">
-    <script src="/node_modules/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <script src="/node_modules/@yaireo/tagify/dist/tagify.min.js"></script>
     <script type="application/javascript" th:inline="javascript">
         $(function() {
-            <!--tagify액션 발생시 서버쪽에 ajax 요청 보내는 js Function-->
             function tagRequest(url, tagTitle) {
                 $.ajax({
                     dataType: "json",
@@ -173,7 +172,7 @@
                     },
                     contentType: "application/json; charset=utf-8",
                     method: "POST",
-                    url: "/settings/tags" + url,
+                    url: "[(${baseUrl})]" + url,
                     data: JSON.stringify({'tagTitle': tagTitle})
                 }).done(function (data, status) {
                     console.log("${data} and status is ${status}");
@@ -193,8 +192,8 @@
                 pattern: /^.{0,20}$/,
                 whitelist: JSON.parse(document.querySelector("#whitelist").textContent),
                 dropdown : {
-                    enabled: 1, // suggest tags after a single character input
-                } // map tags
+                    enabled: 1,
+                }
             });
             tagify.on("add", onAdd);
             tagify.on("remove", onRemove);
@@ -217,7 +216,7 @@
                     },
                     contentType: "application/json; charset=utf-8",
                     method: "POST",
-                    url: "/settings/zones" + url,
+                    url: "[(${baseUrl})]" + url,
                     data: JSON.stringify({'zoneName': zoneName})
                 }).done(function (data, status) {
                     console.log(data + "and status is" + status);
