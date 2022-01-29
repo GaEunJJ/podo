@@ -5,14 +5,18 @@
 <div th:replace="fragments.html :: main-nav"></div>
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>포도</h1>
-        <p class="lead text-muted">
-            관심분야와 사는 지역을 매칭하여 참여 가능합니다!<br/>
-            다양한 모임을 관리할 수 있습니다.
-        </p>
-        <p>
-            <a th:href="@{/sign-up}" class="btn btn-primary my-2">회원 가입</a>
-        </p>
+        <div class="row gx-2 gx-lg-3 align-items-center my-3">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="/images/mainImage.jpg" alt="..." /></div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">모임의 즐거움 <span style = "color:#5F00FF"><b>"Podo"</b></span></h1>
+                <br/><br/>
+                <p>당신이 원하는 모임을 찾아서 참가해보세요! </p>
+                <p>원하는 모임을 만들고 관리하는 것도 가능하답니다. </p>
+                <p>
+                    <a th:href="@{/sign-up}" class="btn btn-primary my-2">회원 가입</a>
+                </p>
+            </div>
+        </div>
     </div>
 </section>
 <div class="container">
