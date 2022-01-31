@@ -58,6 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception{
         web.ignoring()
                 .mvcMatchers("/node_modules/**")
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
+                // 적합한 회원 로그인
+                .antMatchers("/favicon.ico", "/resources/**", "/error");
     }
 }
