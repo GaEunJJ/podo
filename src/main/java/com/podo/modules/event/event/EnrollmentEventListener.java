@@ -40,11 +40,11 @@ public class EnrollmentEventListener {
         Event event = enrollment.getEvent();
         Crew crew = event.getCrew();
 
-        if (account.isCrewEnrollmentResultByEmail()) {
+        if (account.isClubEnrollmentResultByEmail()) {
             sendEmail(enrollmentEvent, account, event, crew);
         }
 
-        if (account.isCrewEnrollmentResultByWeb()) {
+        if (account.isClubCreatedByWeb()) {
             createNotification(enrollmentEvent, account, event, crew);
         }
     }

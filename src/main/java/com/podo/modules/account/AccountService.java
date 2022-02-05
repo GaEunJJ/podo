@@ -54,7 +54,7 @@ public class AccountService implements UserDetailsService {
         signUpForm.setPassword(passwordEncoder.encode(signUpForm.getPassword()));
         Account account = modelMapper.map(signUpForm, Account.class);
         // 이메일 체크토큰 만듬
-        account.geterateEmailCheckToken();
+        account.generateEmailCheckToken();
 
         return accountRepository.save(account);
     }

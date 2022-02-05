@@ -104,16 +104,5 @@ public class Account {
         this.emailCheckTokenGeneratedAt = LocalDateTime.now();
     }
 
-    private boolean crewCreatedByEmail;
-
-    private boolean crewCreatedByWeb = true;
-
-    private boolean crewUpdatedByEmail;
-
-    private boolean crewUpdatedByWeb = true;
-
-    private boolean crewEnrollmentResultByEmail;
-
-    private boolean crewEnrollmentResultByWeb = true;
 
 }

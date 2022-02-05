@@ -9,9 +9,9 @@ public class Notifications {
 
     private boolean clubCreatedByWeb;
 
-    private boolean clubEnrollmentByEmail;
+    private boolean clubEnrollmentResultByEmail;
 
-    private boolean clubEnrollmentByWeb;
+    private boolean clubEnrollmentResultByWeb;
 
     private boolean clubUpdatedByEmail;
 

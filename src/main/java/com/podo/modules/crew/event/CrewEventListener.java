@@ -43,12 +43,12 @@ public class CrewEventListener {
         Crew crew = crewRepository.findCrewWithTagsAndZonesById(crewCreatedEvent.getCrew().getId());
         Iterable<Account> accounts = accountRepository.findAll(AccountPredicates.findByTagsAndZones(crew.getTags(), crew.getZones()));
         accounts.forEach(account -> {
-            if (account.isCrewCreatedByEmail()) {
+            if (account.isClubCreatedByEmail()) {
                 sendCrewCreatedEmail(crew, account, "새로운 스터디가 생겼습니다",
                         "포도, '" + crew.getTitle() + "' 모임이 생겼습니다.");
             }
 
-            if (account.isCrewCreatedByWeb()) {
+            if (account.isClubCreatedByWeb()) {
                 createNotification(crew, account, crew.getShortDescription(), NotificationType.CREW_CREATED);
             }
         });
@@ -62,12 +62,12 @@ public class CrewEventListener {
         accounts.addAll(crew.getMembers());
 
         accounts.forEach(account -> {
-            if (account.isCrewUpdatedByEmail()) {
+            if (account.isClubUpdatedByEmail()) {
                 sendCrewCreatedEmail(crew, account, crewUpdateEvent.getMessage(),
                         "포도, '" + crew.getTitle() + "' 모임에 새소식이 있습니다.");
             }
 
-            if (account.isCrewUpdatedByWeb()) {
+            if (account.isClubUpdatedByWeb()) {
                 createNotification(crew, account, crewUpdateEvent.getMessage(), NotificationType.CREW_UPDATED);
             }
         });
