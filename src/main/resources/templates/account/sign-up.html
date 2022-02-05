@@ -49,9 +49,38 @@
                     <button class="btn btn-primary btn-block" type="submit"
                             aria-describedby="submitHelp">가입하기</button>
                     <small id="submitHelp" class="form-text text-muted">
-                        <a href="#">약관</a>에 동의하시면 가입하기 버튼을 누르세요.
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">약관</a>에 동의하시면 가입하기 버튼을 누르세요.
                     </small>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">약관</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                (개인정보보호 의무)<br>
+                                'podo'는 '정보통신망법' 등 관계 법령이 정하는 바에 따라 '회원'의 개인정보를 보호하기 위해 노력합니다.
+                                개인정보의 보호 및 사용에 대해서는 관련법 및 '회사'의 개인정보처리방침이 적용됩니다.
+                                다만, '회사'의 공식 사이트 이외의 링크된 사이트에서는 ‘회사’의 개인정보처리방침이 적용되지 않습니다.
+                                <p></p>
+                                (게시물의 관리)<br>
+                                1. '이용자'의 게시물이 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』, 『개인정보보호법』, 『저작권법』 등 관련법령에 위반되는 내용을 포함하는 경우, 권리자는 관련법령이 정한 절차에 따라 해당 게시물의 게시중단 및 삭제 등을 요청할 수 있으며, '회사'는 관련법령에 따라 조치를 취하여야 합니다.<br>
+                                2. '회사'는 전항에 따른 권리자의 요청이 없는 경우라도 권리침해가 인정될 만한 사유가 있거나 기타 회사 정책 및 관련법에 위반되는 경우에는 관련법에 따라 해당 게시물에 대해 임시조치 등을 취할 수 있습니다.<br>
+                                3. 이 조에 따른 세부절차는 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』, 『개인정보보호법』및 『저작권법』이 규정한 범위 내에서 '회사'가 정한 정책에 따릅니다.<br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </form>
         </div>
         <div th:replace="fragments.html :: footer"></div>

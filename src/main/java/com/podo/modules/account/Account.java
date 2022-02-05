@@ -115,4 +115,5 @@ public class Account {
     private boolean crewEnrollmentResultByEmail;
 
     private boolean crewEnrollmentResultByWeb = true;
+
 }
