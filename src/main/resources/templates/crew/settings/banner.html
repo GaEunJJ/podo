@@ -41,7 +41,7 @@
             </div>
             <form id="imageForm" action="#" th:action="@{'/crew/' + ${crew.getPath()} + '/settings/banner'}" method="post" novalidate>
                 <div class="form-group">
-                    <input id="crew" type="hidden" name="image" class="form-control" />
+                    <input id="crewImage" type="hidden" name="image" class="form-control" />
                 </div>
             </form>
             <div class="card text-center">
@@ -52,7 +52,7 @@
                 <div class="card-body">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="crew-image-file">
-                        <label class="custom-file-label" for="crew-image-file">스터디 이미지 변경</label>
+                        <label class="custom-file-label" for="crew-image-file">모임 배너 이미지 변경</label>
                     </div>
                     <div id="new-crew-image-control" class="mt-3">
                         <button class="btn btn-outline-primary btn-block" id="cut-button">자르기</button>

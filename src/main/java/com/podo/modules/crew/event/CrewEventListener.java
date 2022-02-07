@@ -44,7 +44,7 @@ public class CrewEventListener {
         Iterable<Account> accounts = accountRepository.findAll(AccountPredicates.findByTagsAndZones(crew.getTags(), crew.getZones()));
         accounts.forEach(account -> {
             if (account.isClubCreatedByEmail()) {
-                sendCrewCreatedEmail(crew, account, "새로운 스터디가 생겼습니다",
+                sendCrewCreatedEmail(crew, account, "새로운 모임이 생겼습니다",
                         "포도, '" + crew.getTitle() + "' 모임이 생겼습니다.");
             }
 
