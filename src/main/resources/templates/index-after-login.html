@@ -3,79 +3,87 @@
 <head th:replace="fragments.html :: head"></head>
 <body class="bg-light">
 <div th:replace="fragments.html :: main-nav"></div>
-<div class="alert alert-warning" role="alert" th:if="${account != null && !account?.emailVerified}">
-    포도 가입을 완료하려면 <a href="#" th:href="@{/check-email(email=${account.email})}" class="alert-link">계정 인증 이메일을 확인</a>하세요.
-</div>
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-2">
-            <h5 class="font-weight-light"><b>나의 관심 주제</b></h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item" th:each="tag: ${account.tags}">
-                    <i class="fa fa-child"></i> <span th:text="${ tag.title}"></span>
-                </li>
-                <li class="list-group-item" th:if="${account.tags.size() == 0}">
-                    <a th:href="@{/settings/tags}" class="btn-text">관심 모임 주제</a>를 등록하세요.
-                </li>
-            </ul>
-            <h5 class="mt-3 font-weight-light"><b>나의 활동 지역</b></h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item" th:each="zone: ${account.zones}">
-                    <i class="fa fa-map-o"></i> <span th:text="${zone.getLocalNameOfCity()}">Zone</span>
-                </li>
-                <li class="list-group-item" th:if="${account.zones.size() == 0}">
-                    <a th:href="@{/settings/zones}" class="btn-text">주요 활동 지역</a>을 등록하세요.
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-7">
-            <h5 th:if="${#lists.isEmpty(enrollmentList)}" class="font-weight-light">참석할 모임이 없습니다.</h5>
-            <h5 th:if="${!#lists.isEmpty(enrollmentList)}" class="font-weight-light"><b>참석할 모임</b></h5>
-            <div class="row row-cols-1 row-cols-md-2" th:if="${!#lists.isEmpty(enrollmentList)}">
-                <div class="col mb-4" th:each="enrollment: ${enrollmentList}">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${enrollment.event.title}">Event title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" th:text="${enrollment.event.crew.title}"> Crew title</h6>
-                            <p class="card-text">
-                                <span>
-                                    <i class="fa fa-calendar-o"></i>
-                                    <span class="calendar" th:text="${enrollment.event.startDateTime}">Last updated 3 mins ago</span>
-                                </span>
-                            </p>
-                            <a th:href="@{'/crew/' + ${enrollment.event.crew.path} + '/events/' + ${enrollment.event.id}}" class="card-link"><b>신청 모임 조회</b></a>
-                            <a th:href="@{'/crew/' + ${enrollment.event.crew.path}}" class="card-link"><b>모임 목록</b></a>
+
+<br>
+<section id="about" class="about-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-push-8">
+                <div>
+                    <div>
+                    <h2>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>My Meeting</b>
+                    </h2>
+                    </div>
+                    <br>
+                    <div>
+                        <ul class="d-flex align-items-start">
+                            <svg th:if="${#strings.isEmpty(account.profileImage)}" class="img-fluid float-left rounded img-thumbnail"
+                                 th:data-jdenticon-value="${account.nickname}" width="125" height="125"></svg>
+                            <img th:if="${!#strings.isEmpty(account.profileImage)}" class="img-fluid float-left rounded img-thumbnail"
+                                 th:src="${account.profileImage}" width="125" height="125"/>
+                        </ul>
+                    </div>
+                    <ul>
+                        <h2 class="font-weight-light" th:text="${account.nickname}">podo</h2>
+                        <hr>
+                        <h5 class="font-weight-light"><b>나의 관심 주제</b></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:each="tag: ${account.tags}">
+                                <i class="fa fa-check"></i> <span th:text="${ tag.title}"></span>
+                            </li>
+                            <li class="list-group-item" th:if="${account.tags.size() == 0}">
+                                <a th:href="@{/settings/tags}" class="btn-text">관심 모임 주제</a>를 등록하세요.
+                            </li>
+                        </ul>
+                        <h5 class="mt-3 font-weight-light"><b>나의 활동 지역</b></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:each="zone: ${account.zones}">
+                                <i class="fa fa-map-o"></i> <span th:text="${zone.getLocalNameOfCity()}">Zone</span>
+                            </li>
+                            <li class="list-group-item" th:if="${account.zones.size() == 0}">
+                                <a th:href="@{/settings/zones}" class="btn-text">주요 활동 지역</a>을 등록하세요.
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div> <!-- col-md-4 -->
+            <div class="col-md-9 col-md-pull-4">
+                <h5 th:if="${#lists.isEmpty(enrollmentList)}" class="font-weight-light">참석할 모임이 없습니다.</h5>
+                <h5 th:if="${!#lists.isEmpty(enrollmentList)}" class="font-weight-light"><b>참석 모임</b></h5>
+                <div class="row row-cols-1 row-cols-md-2" th:if="${!#lists.isEmpty(enrollmentList)}">
+                    <div class="col mb-4" th:each="enrollment: ${enrollmentList}">
+                        <div class="card">
+                            <div class="card-header" th:text="${enrollment.event.title}">
+                                주제
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title mb-2 text-muted" th:text="${enrollment.event.crew.title}">모임</h5>
+                                <p class="card-text">
+                                    <span>
+                                          <i class="fa fa-hand-o-right"></i>
+                                          <span class="calendar" th:text="${enrollment.event.startDateTime}">Last updated 3 mins ago</span>
+                                    </span>
+                                </p>
+                                <a href="#" class="btn btn-outline-primary" th:href="@{'/crew/' + ${enrollment.event.crew.path} + '/events/' + ${enrollment.event.id}}">모임 조회</a>
+                                <a href="#" class="btn btn-outline-success" th:href="@{'/crew/' + ${enrollment.event.crew.path}}">모임 목록</a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <h5 class="font-weight-light mt-3" th:if="${#lists.isEmpty(crewList)}">관련 모임이 없습니다.</h5>
-            <h5 class="font-weight-light mt-3" th:if="${!#lists.isEmpty(crewList)}"><b>내 활동 지역의 관심 주제 모임</b></h5>
-            <div class="row justify-content-center">
-                <div th:replace="fragments.html :: crew-list (crewList=${crewList})"></div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <h5 class="font-weight-light" th:if="${#lists.isEmpty(crewManagerOf)}">관리중인 모임이 없습니다.</h5>
-            <h5 class="font-weight-light" th:if="${!#lists.isEmpty(crewManagerOf)}"><b>관리중인 모임</b></h5>
-            <div class="list-group" th:if="${!#lists.isEmpty(crewManagerOf)}">
-                <a href="#" th:href="@{'/crew/' + ${crew.path}}" th:text="${crew.title}"
-                   class="list-group-item list-group-item-action" th:each="crew: ${crewManagerOf}">
-                    Crew title
-                </a>
+                <h5 class="font-weight-light mt-3" th:if="${#lists.isEmpty(crewList)}">관련 모임이 없습니다.</h5>
+                <h5 class="font-weight-light mt-3" th:if="${!#lists.isEmpty(crewList)}"><b>내 활동 지역의 관심 주제 모임</b></h5>
+                <div class="row justify-content-center">
+                    <div th:replace="fragments.html :: crew-list (crewList=${crewList})"></div>
+                </div>
             </div>
 
-            <h5 class="font-weight-light mt-3" th:if="${#lists.isEmpty(crewMemberOf)}">참여중인 모임이 없습니다.</h5>
-            <h5 class="font-weight-light mt-3" th:if="${!#lists.isEmpty(crewMemberOf)}"><b>참여중인 모임</b></h5>
-            <div class="list-group" th:if="${!#lists.isEmpty(crewMemberOf)}">
-                <a href="#" th:href="@{'/crew/' + ${crew.path}}" th:text="${crew.title}"
-                   class="list-group-item list-group-item-action" th:each="crew: ${crewManagerOf}">
-                    Crew title
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>
+
 <div th:replace="fragments.html :: footer"></div>
 <div th:replace="fragments.html :: date-time"></div>
 </body>
