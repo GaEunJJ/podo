@@ -2,9 +2,10 @@
 <img src="https://user-images.githubusercontent.com/73327256/153014796-f05f1773-e64c-45f4-ace4-a6445f5bc250.PNG" width="400" height="180"/>
 
 > ## 함께하는 즐거움 Podo 
-> 관심있는 주제의 모임을 찾아 인맥을 쌓아보세요.    
-       
-      
+> 관심있는 주제의 모임을 찾아 인맥을 쌓아보세요.  
+  
+   
+   
 # 서비스개요
 ### 기획배경 및 동기
 ```
@@ -18,9 +19,9 @@
 ### 개발 환경
 * **IDE** : intelliJ
 
-* **Language** : Java
+* **Language** : Java11
 
-* **Framework** : SpringBoot, QueryDSL
+* **Framework** : SpringBoot 2.5.6, QueryDSL
 
 * **Build** : maven
 
