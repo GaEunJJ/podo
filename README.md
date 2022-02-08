@@ -4,7 +4,7 @@
 > ## 함께하는 즐거움 Podo 
 > 관심있는 주제의 모임을 찾아 인맥을 쌓아보세요.  
         
-         ##
+            
 # 서비스개요
 ### 기획배경 및 동기
 ```
@@ -18,7 +18,6 @@
 ### 개발 환경
 
 ![st](https://user-images.githubusercontent.com/73327256/153040570-f1ba9e35-acf3-4a00-a5c0-e8704200dbe3.PNG)
-  
   
 * **IDE** : intelliJ
 
