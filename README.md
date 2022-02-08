@@ -3,9 +3,8 @@
 
 > ## 함께하는 즐거움 Podo 
 > 관심있는 주제의 모임을 찾아 인맥을 쌓아보세요.  
-  
-   
-   
+        
+         
 # 서비스개요
 ### 기획배경 및 동기
 ```
@@ -31,6 +30,9 @@
 
 * **Template Engine** : Thymeleaf
 
+![st](https://user-images.githubusercontent.com/73327256/153040570-f1ba9e35-acf3-4a00-a5c0-e8704200dbe3.PNG)
+
+
 
 # 모임 웹서비스 Podo
 1. 사이트 볼 수 있게 하이퍼링크
@@ -39,3 +41,4 @@
 4. 기술스택
 5. ERD
 6. 주요기능
+7. 개발환경 설정 npm등
