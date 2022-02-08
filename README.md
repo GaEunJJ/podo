@@ -4,14 +4,30 @@
 > ## 함께하는 즐거움 Podo 
 > 관심있는 주제의 모임을 찾아 인맥을 쌓아보세요.
 
-## 서비스개요
+
+# 서비스개요
 ### 기획배경 및 동기
 ```
-사회적인 존재인 사람은 인간관계는 떼놓을 수 없는 필수적 요소이다.
+사회적인 존재인 사람에게 인간관계 필수적 요소입니다.
 대입, 취업 등 자기계발 향상을 목표로 둔 사람들
-취미를 공유하며 일상의 즐거움을 찾는 사람들 등 
+취미를 공유하며 일상의 즐거움과 행복을 찾는 사람들 등 
 뜻이 맞는 사람들이 함께모여 행복한 일상을 보내길 바라는 마음으로 만들었습니다.
 ```
+
+### 개발 환경
+* **IDE** : intelliJ
+
+* **Language** : Java
+
+* **Framework** : SpringBoot, QueryDSL
+
+* **Build** : maven
+
+* **Library** : Spring Web MVC, Spring security, Lombok, Spring mail, Springboot Dev tools, JQuery
+
+* **Database** : PostgreSQL
+
+* **Template Engine** : Thymeleaf
 
 
 # 모임 웹서비스 Podo
