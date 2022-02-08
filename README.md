@@ -1,5 +1,5 @@
 
-<img src="https://user-images.githubusercontent.com/73327256/153014796-f05f1773-e64c-45f4-ace4-a6445f5bc250.PNG  width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/73327256/153014796-f05f1773-e64c-45f4-ace4-a6445f5bc250.PNG" width="200" height="400"/>
 >## 함께하는 즐거움 Podo
 > 같은 취미를 공유하며 인맥을 쌓아보세요.
 
