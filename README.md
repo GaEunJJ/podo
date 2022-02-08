@@ -16,6 +16,10 @@
         
             
 ### 개발 환경
+
+![st](https://user-images.githubusercontent.com/73327256/153040570-f1ba9e35-acf3-4a00-a5c0-e8704200dbe3.PNG)
+  
+  
 * **IDE** : intelliJ
 
 * **Language** : Java11
@@ -30,7 +34,7 @@
 
 * **Template Engine** : Thymeleaf
 
-![st](https://user-images.githubusercontent.com/73327256/153040570-f1ba9e35-acf3-4a00-a5c0-e8704200dbe3.PNG)
+
 
 
 
