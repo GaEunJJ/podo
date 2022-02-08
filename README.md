@@ -1,4 +1,6 @@
-<지속적인 수정 중 입니다.>
+![podo_long](https://user-images.githubusercontent.com/73327256/153014796-f05f1773-e64c-45f4-ace4-a6445f5bc250.PNG)
+>## 함께하는 즐거움 Podo
+> 같은 취미를 공유하며 인맥을 형성해봐요.
 
 # 모임 웹서비스 Podo
 1. 사이트 볼 수 있게 하이퍼링크
