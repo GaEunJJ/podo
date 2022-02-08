@@ -9,7 +9,7 @@
    
    
 # 서비스개요
-### 기획배경 및 동기
+### 📝기획배경 및 동기
 ```
 사람에게 인간관계 필수적 요소입니다.
 대입, 취업 등 자기계발 향상을 목표로 둔 사람들
@@ -18,7 +18,7 @@
 ```  
         
             
-### 개발 환경
+### 🛠 개발 환경
 
 ![st](https://user-images.githubusercontent.com/73327256/153040570-f1ba9e35-acf3-4a00-a5c0-e8704200dbe3.PNG)
   
@@ -37,7 +37,7 @@
 * **Template Engine** : Thymeleaf
    
    
-### ERD
+### 💻 ERD
 <img src="https://user-images.githubusercontent.com/73327256/153045276-cfa86d88-0de7-4af7-96c4-70284b983d17.PNG" width="750" height="450"/>
 
 
