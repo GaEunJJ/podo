@@ -313,38 +313,42 @@
         <div class="col-10">
             <p>
                 <span th:each="tag: ${crew.tags}"
-                      class="font-weight-light text-monospace badge badge-pill badge-info mr-3">
+                      class="font-weight-light text-monospace badge rounded-pill badge-dark mr-3">
                     <a th:href="@{'/search/tag/' + ${tag.title}}" class="text-decoration-none text-white">
                         <i class="fa fa-tag"></i> <span th:text="${tag.title}">Tag</span>
                     </a>
                 </span>
-                <span th:each="zone: ${crew.zones}" class="font-weight-light text-monospace badge badge-primary mr-3">
+                <span th:each="zone: ${crew.zones}" class="font-weight-light text-monospace badge rounded-pill badge-success mr-3">
                     <a th:href="@{'/search/zone/' + ${zone.id}}" class="text-decoration-none text-white">
                         <i class="fa fa-globe"></i> <span th:text="${zone.localNameOfCity}">City</span>
                     </a>
                 </span>
             </p>
+            <br><br>
         </div>
     </div>
 </div>
 
 <div th:fragment="crew-menu (crewMenu)" class="row px-3 justify-content-center bg-light">
-    <nav class="col-10 nav nav-tabs">
+    <br />
+    <nav class="col-10 nav nav-pills nav-fill">
         <a class="nav-item nav-link" href="#" th:classappend="${crewMenu == 'info'}? active" th:href="@{'/crew/' + ${crew.path}}">
-            <i class="fa fa-info-circle"></i> 소개
+            소개
         </a>
         <a class="nav-item nav-link" href="#" th:classappend="${crewMenu == 'members'}? active" th:href="@{'/crew/' + ${crew.path} + '/members'}">
-            <i class="fa fa-user"></i> 구성원
+            구성원
         </a>
         <a class="nav-item nav-link" th:classappend="${crewMenu == 'events'}? active" href="#" th:href="@{'/crew/' + ${crew.path} + '/events'}">
-            <i class="fa fa-calendar"></i> 모임
+            모임
         </a>
+        <!--가입이 되어 있고 매니저인 경우에만 설정버튼을 보여준다!! -->
         <a sec:authorize="isAuthenticated()" th:if="${crew.isManager(#authentication.principal)}"
            class="nav-item nav-link" th:classappend="${crewMenu == 'settings'}? active" href="#" th:href="@{'/crew/' + ${crew.path} + '/settings/description'}">
             <i class="fa fa-cog"></i> 설정
         </a>
     </nav>
 </div>
+
 
 <script th:fragment="tooltip" type="application/javascript">
     $(function () {
@@ -358,7 +362,7 @@
             <svg th:if="${#strings.isEmpty(member?.profileImage)}" th:data-jdenticon-value="${member.nickname}" width="64" height="64" class="rounded border bg-light mr-3"></svg>
             <img th:if="${!#strings.isEmpty(member?.profileImage)}" th:src="${member?.profileImage}" width="64" height="64" class="rounded border mr-3"/>
             <div class="media-body">
-                <h5 class="mt-0 mb-1"><span th:text="${member.nickname}"></span> <span th:if="${isManager}" class="badge badge-primary">관리자</span></h5>
+                <h5 class="mt-0 mb-1"><span th:text="${member.nickname}"></span> <span th:if="${isManager}" class="badge rounded-pill badge-primary">관리자</span></h5>
                 <span th:text="${member.bio}"></span>
             </div>
         </li>
@@ -539,12 +543,12 @@
                     </a>
                     <p class="card-text" th:text="${crew.shortDescription}">Short description</p>
                     <p class="card-text context">
-                                <span th:each="tag: ${crew.tags}" class="font-weight-light text-monospace badge badge-pill badge-info mr-3">
+                                <span th:each="tag: ${crew.tags}" class="font-weight-light text-monospace badge rounded-pill badge-info mr-3">
                                     <a th:href="@{'/search/tag/' + ${tag.title}}" class="text-decoration-none text-white">
                                         <i class="fa fa-tag"></i> <span th:text="${tag.title}">Tag</span>
                                     </a>
                                 </span>
-                        <span th:each="zone: ${crew.zones}" class="font-weight-light text-monospace badge badge-primary mr-3">
+                        <span th:each="zone: ${crew.zones}" class="font-weight-light text-monospace badge rounded-pill badge-primary mr-3">
                                     <a th:href="@{'/search/zone/' + ${zone.id}}" class="text-decoration-none text-white">
                                         <i class="fa fa-globe"></i> <span th:text="${zone.localNameOfCity}" class="text-white">City</span>
                                     </a>
