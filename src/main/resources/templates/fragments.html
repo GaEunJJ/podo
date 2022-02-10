@@ -260,72 +260,66 @@
 </div>
 
 <div th:fragment="crew-info">
-    <div class="row pt-4 text-left justify-content-center bg-light">
-        <div class="col-6">
+    <div class="row justify-content-center bg-light"><br></div>
+    <div class="row justify-content-center bg-light">
             <a href="#" class="text-decoration-none" th:href="@{'/crew/' + ${crew.path}}">
                 <span class="h2" th:text="${crew.title}">모임 이름</span>
             </a>
-        </div>
-        <div class="col-4 text-right justify-content-end">
+    </div>
+    <div class="row justify-content-center bg-light">
+            <p class="lead" th:text="${crew.shortDescription}"></p>
+    </div>
+    <div class="row justify-content-center bg-light">
+        <p>
+            <span th:each="tag: ${crew.tags}"
+                  class="font-weight-light text-monospace badge rounded-pill badge-info mr-3">
+                <a th:href="@{'/search/tag/' + ${tag.title}}" class="text-decoration-none text-white">
+                    <i class="fa fa-gratipay"></i> <span th:text="${tag.title}">Tag</span>
+                </a>
+            </span>
+            <span th:each="zone: ${crew.zones}" class="font-weight-light text-monospace badge rounded-pill badge-success mr-3">
+                <a th:href="@{'/search/zone/' + ${zone.id}}" class="text-decoration-none text-white">
+                    <i class="fa fa-street-view"></i> <span th:text="${zone.localNameOfCity}">City</span>
+                </a>
+            </span>
+        </p>
+    </div>
+    <div class="py-5 text-center bg-light">
                 <span th:if="${!crew.published}"
                       class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom"
                       title="모임 공개 준비중">
-                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>DRAFT</button>
+                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>공개 준비중</button>
                 </span>
-            <span th:if="${crew.closed}"
-                  class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="모임 종료함">
-                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>CLOSED</button>
+        <span th:if="${crew.closed}"
+              class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="모임 종료함">
+                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>모임 종료</button>
                 </span>
-            <span th:if="${!crew.recruiting}"
-                  class="d-inline-block ml-1" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="팀원 모집중 아님">
-                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>OFF</button>
+        <span th:if="${!crew.recruiting}"
+              class="d-inline-block ml-1" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="팀원 모집중 아님">
+                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>참여 불가능</button>
                 </span>
-            <span sec:authorize="isAuthenticated()" th:if="${crew.isJoinable(#authentication.principal)}"
-                  class="btn-group" role="group" aria-label="Basic example">
+        <span sec:authorize="isAuthenticated()" th:if="${crew.isJoinable(#authentication.principal)}"
+              class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary" th:href="@{'/crew/' + ${crew.path} + '/join'}">
                         모임 가입
                     </a>
                     <a class="btn btn-outline-primary" th:href="@{'/crew/' + ${crew.path} + '/members'}"
                        th:text="${crew.members.size()}">1</a>
                 </span>
-            <span sec:authorize="isAuthenticated()"
-                  th:if="${!crew.closed && crew.isMember(#authentication.principal)}" class="btn-group" role="group">
+        <span sec:authorize="isAuthenticated()"
+              th:if="${!crew.closed && crew.isMember(#authentication.principal)}" class="btn-group" role="group">
                     <a class="btn btn-outline-warning" th:href="@{'/crew/' + ${crew.path} + '/leave'}">
                         모임 탈퇴
                     </a>
                     <a class="btn btn-outline-primary" th:href="@{'/crew/' + ${crew.path} + '/members'}"
                        th:text="${crew.members.size()}">1</a>
                 </span>
-            <span sec:authorize="isAuthenticated()"
-                  th:if="${crew.published && !crew.closed && crew.isManager(#authentication.principal)}">
+        <span sec:authorize="isAuthenticated()"
+              th:if="${crew.published && !crew.closed && crew.isManager(#authentication.principal)}">
                     <a class="btn btn-outline-primary" th:href="@{'/crew/' + ${crew.path} + '/new-event'}">
-                        <i class="fa fa-plus"></i> 모임 만들기
+                        <i class="fa fa-plus"></i> 관련 모임 만들기
                     </a>
                 </span>
-        </div>
-    </div>
-    <div class="row justify-content-center bg-light">
-        <div class="col-10">
-            <p class="lead" th:text="${crew.shortDescription}"></p>
-        </div>
-    </div>
-    <div class="row justify-content-center bg-light">
-        <div class="col-10">
-            <p>
-                <span th:each="tag: ${crew.tags}"
-                      class="font-weight-light text-monospace badge rounded-pill badge-dark mr-3">
-                    <a th:href="@{'/search/tag/' + ${tag.title}}" class="text-decoration-none text-white">
-                        <i class="fa fa-tag"></i> <span th:text="${tag.title}">Tag</span>
-                    </a>
-                </span>
-                <span th:each="zone: ${crew.zones}" class="font-weight-light text-monospace badge rounded-pill badge-success mr-3">
-                    <a th:href="@{'/search/zone/' + ${zone.id}}" class="text-decoration-none text-white">
-                        <i class="fa fa-globe"></i> <span th:text="${zone.localNameOfCity}">City</span>
-                    </a>
-                </span>
-            </p>
-            <br><br>
-        </div>
     </div>
 </div>
 
@@ -333,18 +327,18 @@
     <br />
     <nav class="col-10 nav nav-pills nav-fill">
         <a class="nav-item nav-link" href="#" th:classappend="${crewMenu == 'info'}? active" th:href="@{'/crew/' + ${crew.path}}">
-            소개
+            <b>소개</b>
         </a>
         <a class="nav-item nav-link" href="#" th:classappend="${crewMenu == 'members'}? active" th:href="@{'/crew/' + ${crew.path} + '/members'}">
-            구성원
+            <b>구성원</b>
         </a>
         <a class="nav-item nav-link" th:classappend="${crewMenu == 'events'}? active" href="#" th:href="@{'/crew/' + ${crew.path} + '/events'}">
-            모임
+            <b>모임</b>
         </a>
         <!--가입이 되어 있고 매니저인 경우에만 설정버튼을 보여준다!! -->
         <a sec:authorize="isAuthenticated()" th:if="${crew.isManager(#authentication.principal)}"
            class="nav-item nav-link" th:classappend="${crewMenu == 'settings'}? active" href="#" th:href="@{'/crew/' + ${crew.path} + '/settings/description'}">
-            <i class="fa fa-cog"></i> 설정
+            <i class="fa fa-cog"></i> <b>설정</b>
         </a>
     </nav>
 </div>
