@@ -83,15 +83,17 @@
 
     <div class="row px-3 justify-content-center">
         <div class="col-7 pt-3">
-            <dt class="font-weight-light">상세 모임 설명</dt>
+            <dt class="font-weight-light">상세 모임 설명</dt><br>
             <dd th:utext="${event.description}"></dd>
 
-            <dt class="font-weight-light">모임 참가 신청 (<span th:text="${event.enrollments.size()}"></span>)</dt>
+            <section><br><br></section>
+
+            <dt class="font-weight-light">모임 참가 신청 (<span th:text="${event.enrollments.size()}"></span>)</dt><br>
             <dd>
-                <table class="table table-borderless table-sm" th:if="${event.enrollments.size() > 0}">
+                <table class="table table-striped" th:if="${event.enrollments.size() > 0}">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col"> </th>
                         <th scope="col">참석자</th>
                         <th scope="col">참가 신청 일시</th>
                         <th scope="col">참가 상태</th>
@@ -141,26 +143,26 @@
             </dd>
         </div>
 
-        <dl class="col-3 pt-3 text-right">
-            <dt class="font-weight-light">모집 방법</dt>
+        <dl class="col-3 pt-3 text-center">
+            <dt class="font-weight-light">[모집 방법]</dt>
             <dd>
                 <span th:if="${event.eventType == T(com.podo.modules.event.EventType).FCFS}">선착순</span>
                 <span th:if="${event.eventType == T(com.podo.modules.event.EventType).CONFIRMATIVE}">관리자 확인</span>
             </dd>
 
-            <dt class="font-weight-light">모집 인원</dt>
+            <dt class="font-weight-light">[모집 인원]</dt>
             <dd>
                 <span th:text="${event.limitOfEnrollments}"></span>
             </dd>
 
-            <dt class="font-weight-light">참가 신청 마감 일시</dt>
+            <dt class="font-weight-light">[참가 신청 마감]</dt>
             <dd>
                 <span class="date" th:text="${event.endEnrollmentDateTime}"></span>
                 <span class="weekday" th:text="${event.endEnrollmentDateTime}"></span><br/>
                 <span class="time" th:text="${event.endEnrollmentDateTime}"></span>
             </dd>
 
-            <dt class="font-weight-light">모임 일시</dt>
+            <dt class="font-weight-light">[모임 일시]</dt>
             <dd>
                 <span class="date" th:text="${event.startDateTime}"></span>
                 <span class="weekday" th:text="${event.startDateTime}"></span><br/>
@@ -168,7 +170,7 @@
                 <span class="time" th:text="${event.endDateTime}"></span>
             </dd>
 
-            <dt class="font-weight-light">모임장</dt>
+            <dt class="font-weight-light">[모임장]</dt>
             <dd>
                 <a th:href="@{'/profile/' + ${event.createdBy?.nickname}}" class="text-decoration-none">
                     <svg th:if="${#strings.isEmpty(event.createdBy?.profileImage)}"
@@ -178,15 +180,15 @@
                     <span th:text="${event.createdBy?.nickname}"></span>
                 </a>
             </dd>
-
-            <dt th:if="${crew.isManager(#authentication.principal)}" class="font-weight-light">모임 관리</dt>
+            <br>
+            <dt th:if="${crew.isManager(#authentication.principal)}" class="font-weight-light">[모임 관리]</dt>
             <dd th:if="${crew.isManager(#authentication.principal)}">
                 <a class="btn btn-outline-primary btn-sm my-1"
                    th:href="@{'/crew/' + ${crew.path} + '/events/' + ${event.id} + '/edit'}" >
                     모임 수정
                 </a> <br/>
                 <button class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#cancel">
-                    모임 취소
+                    모임 삭제
                 </button>
             </dd>
         </dl>
@@ -214,6 +216,7 @@
             </div>
         </div>
     </div>
+    <br><br>
     <div th:replace="fragments.html :: footer"></div>
 </div>
 <script th:replace="fragments.html :: date-time"></script>
