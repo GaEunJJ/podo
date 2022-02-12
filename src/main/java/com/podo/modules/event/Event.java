@@ -6,6 +6,7 @@ import com.podo.modules.crew.Crew;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -68,6 +69,7 @@ public class Event {
     @Enumerated(EnumType.STRING)
     private EventType eventType;
 
+    @Lob//추가
     public boolean isEnrollableFor(UserAccount userAccount) {
         return isNotClosed() && !isAttended(userAccount) && !isAlreadyEnrolled(userAccount);
     }
@@ -81,6 +83,7 @@ public class Event {
     }
 
     // 참석 여부
+    @Lob//추가
     public boolean isAttended(UserAccount userAccount) {
         Account account = userAccount.getAccount();
         for (Enrollment e : this.enrollments) {
