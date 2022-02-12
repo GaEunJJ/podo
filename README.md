@@ -41,14 +41,3 @@
 ### 💻 ERD
 <img src="https://user-images.githubusercontent.com/73327256/153045276-cfa86d88-0de7-4af7-96c4-70284b983d17.PNG" width="750" height="450"/>
 
-
-
-
-# 모임 웹서비스 Podo
-1. 사이트 볼 수 있게 하이퍼링크
-2. 웹사이트 소개
-3. 아키텍쳐
-4. 기술스택
-5. ERD
-6. 주요기능
-7. 개발환경 설정 npm등
